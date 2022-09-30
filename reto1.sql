@@ -27,6 +27,7 @@ END;
 BEGIN
 UPDATE TOOL
 SET ID = :ID, BRAND = :BRAND, MODEL = :MODEL, CATEGORY_ID = :CATEGORY_ID, NAME = :NAME;
+:status_code := 201;
 END;
 
 BEGIN
@@ -65,6 +66,7 @@ END;
 BEGIN
     UPDATE cliente SET ID=:id , NAME=:name, EMAIL=:email, AGE=:age
     WHERE ID=:id;
+    :status_code := 201;
 END;
 
 BEGIN
@@ -88,6 +90,18 @@ BEGIN
     VALUES(:id, :messagetext);
     :status_code:=201;
 END;
+
+BEGIN
+    UPDATE message SET ID=:id , MESSAGETEXT=:messagetext
+    WHERE ID=:id;
+    :status_code := 201;
+END;
+
+BEGIN
+    DELETE FROM message WHERE ID=:id;
+    :status_code: =204;
+END;
+
 
 
 
